@@ -4,6 +4,8 @@ const startButtonEl = document.querySelector('[data-start]');
 const stopButtonEl = document.querySelector('[data-stop]');
 const bodyEL = document.querySelector('body');
 
+let intervalId;
+
 // Ф-ція зміни кольору body з інтервалом в 1 секунду
 startButtonEl.addEventListener('click', () => {
   startButtonEl.disabled = true;
