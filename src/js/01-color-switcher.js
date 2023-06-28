@@ -11,17 +11,16 @@ const stopButtonEl = document.querySelector('[data-stop]');
 const bodyEL = document.querySelector('body');
 
 startButtonEl.addEventListener('click', () => {
-  bodyEL.style.backgroundColor = getRandomHexColor();   
+  startButtonEl.disabled = true;
+  intervalId = setInterval (() =>
+  bodyEL.style.backgroundColor = getRandomHexColor(),1000);   
 });
 
-
-
-
-
-
-
-
-
+stopButtonEl.addEventListener('click', () => {
+  startButtonEl.disabled = false;
+  stopButtonEl.disabled = true;
+  clearInterval(intervalId);
+});
 
 // Ф-ція генерації рандомного кольору
 function getRandomHexColor() {
