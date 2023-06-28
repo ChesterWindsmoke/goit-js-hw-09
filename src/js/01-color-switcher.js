@@ -1,21 +1,17 @@
-// 1.Повісити слухача подій на кнопку start
-// 2.Відслідкувати подію кліку по кнопкці та передати
-// як колбек ф - цію наш генератор рандомного кольору боді
-// 3.Зробити перевірку якщо кнопка запущена , в цей момент вона не активна
-// 4.Повісити слухача подій на кнопку stop
-// 5.По кліку передати колбек ф-цію яка зупиняю зміну кольору 
 
 // Знаходимо необхідні елементи
 const startButtonEl = document.querySelector('[data-start]');
 const stopButtonEl = document.querySelector('[data-stop]');
 const bodyEL = document.querySelector('body');
 
+// Ф-ція зміни кольору body з інтервалом в 1 секунду
 startButtonEl.addEventListener('click', () => {
   startButtonEl.disabled = true;
+  stopButtonEl.disabled = false;
   intervalId = setInterval (() =>
   bodyEL.style.backgroundColor = getRandomHexColor(),1000);   
 });
-
+// Ф-ція зупинки зміни кольору body
 stopButtonEl.addEventListener('click', () => {
   startButtonEl.disabled = false;
   stopButtonEl.disabled = true;
