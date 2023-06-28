@@ -6,6 +6,14 @@ import flatpickr from "flatpickr";
 // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 
+
+const inputEl = document.getElementById('datetime-picker');
+const daysEl = document.querySelector('[data-days]');
+const hoursEl = document.querySelector('[data-hours]');
+const minutesEl = document.querySelector('[data-minutes]');
+const secondsEl = document.querySelector('[data-seconds]');
+const buttonEl = document.querySelector('[data-start]');
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -15,6 +23,23 @@ const options = {
     console.log(selectedDates[0]);
   },
 };
+
+flatpickr(inputEl, options);
+
+const date = new Date();
+
+function chooseDate(options) {
+  if (selectedDates >= date) {
+    buttonEl.disabled = true;
+    window.alert('Please choose a date in the future');
+  }
+};
+
+
+
+
+
+
 
 
 
